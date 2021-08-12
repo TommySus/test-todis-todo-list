@@ -1,12 +1,13 @@
 <template>
   <div  v-b-modal="`modal${Card.id}`" id="card">
-    <div id="cardTitle">
-      <span id="titleCard">{{Card.name}}</span>
+    <div id="cardShowInfo">
+      <div id="cardTitle">
+        <span id="titleCard">{{Card.name}}</span>
+      </div>
+      <div v-if="checklistChecked.totalCheck > 0" id="label">
+        <p> <b>&#10003; {{checklistChecked.checked}}/{{checklistChecked.totalCheck}}</b> </p>
+      </div>
     </div>
-    <div v-if="checklistChecked.totalCheck > 0" id="label">
-      <p> <b>&#10003; {{checklistChecked.checked}}/{{checklistChecked.totalCheck}}</b> </p>
-    </div>
-
     <b-modal :id="`modal${Card.id}`" ok-title="Save" title="Card Detail">
 
         <label for="cardTitle">Title:</label>
@@ -57,7 +58,18 @@
       </b-form>
     </b-modal>
 
-    </b-modal>
+    <template #modal-footer="{ ok, cancel }">
+      <b-button size="sm" variant="primary" @click="ok()">
+        Save
+      </b-button>
+      <b-button size="sm" variant="secondary" @click="cancel()">
+        Cancel
+      </b-button>
+      <b-button size="sm" variant="danger" @click="warningDelete">
+        Delete
+      </b-button>
+    </template>
+  </b-modal>
   </div>
 </template>
 
@@ -125,6 +137,30 @@ export default {
         })
       }
       this.newChecklist = ''
+    },
+    warningDelete () {
+      Swal.fire({
+        title: `Are you want to delete this card (${this.Card.name})?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.deleteCard()
+        }
+      })
+    },
+    deleteCard () {
+      this.$store.dispatch('deleteCard', this.Card.id)
+        .then(data => {
+          Swal.fire(
+            'Deleted!',
+            'Card has been deleted.',
+            'success'
+          )
+        })
     }
   },
   computed: {

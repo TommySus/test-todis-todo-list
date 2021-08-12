@@ -77,7 +77,6 @@ export default {
     deleteList () {
       this.$store.dispatch('deleteBoard', this.Board.id)
         .then(data => {
-          console.log(data, 'dataaaaa')
           Swal.fire(
             'Deleted!',
             'List has been deleted.',

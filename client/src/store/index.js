@@ -101,6 +101,18 @@ export default new Vuex.Store({
           console.log(error)
         })
     },
+    deleteCard (context, payload) {
+      return axios({
+        method: 'DELETE',
+        url: `/todos/card/${payload}`
+      })
+        .then(({ data }) => {
+          context.dispatch('fetchData')
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
     deleteChecklist (context, payload) {
       return axios({
         method: 'DELETE',
