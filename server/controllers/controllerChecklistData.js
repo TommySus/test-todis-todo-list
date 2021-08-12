@@ -7,7 +7,7 @@ class ControllerChecklistData {
     static makeNewChecklistData (req,res) {
         const obj = {
             name: req.body.name,
-            status: req.body.status,
+            status: 0,
             ChecklistId: req.body.ChecklistId,
             createdAt: new Date(),
             updatedAt: new Date()
@@ -63,10 +63,10 @@ class ControllerChecklistData {
             name: req.body.name,
             status: req.body.status
         }
-        ChecklistData.update(obj,{where: {id: req.params.id}})
+        Checklistdata.update(obj,{where: {id: req.params.id}})
         .then(data => {
             if (data) {
-                return ChecklistData.findOne({where: {id: req.params.id}})
+                return Checklistdata.findOne({where: {id: req.params.id}})
                 .then(data2 => {
                    res.status(200).json(data2)
                 })

@@ -7,7 +7,6 @@ class ControllerTodo {
     static makeNewBoard (req,res) {
         const obj = {
             name: req.body.name,
-            CardId: req.body.CardId,
             createdAt: new Date(),
             updatedAt: new Date()
         }
@@ -15,7 +14,6 @@ class ControllerTodo {
         .then( data => {
             res.status(201).json({
                 name: data.name,
-                CardId: data.CardId,
                 createdAt: data.createdAt,
                 updatedAt: data.updatedAt
             })

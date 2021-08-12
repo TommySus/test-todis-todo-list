@@ -6,8 +6,8 @@ class ControllerChecklist {
     // make new checklist
     static makeNewChecklist (req,res) {
         const obj = {
-            name: req.body.ChecklistId,
-            CardId: req.body.ChecklistId,
+            name: req.body.name,
+            CardId: req.body.CardId,
             createdAt: new Date(),
             updatedAt: new Date()
         }
