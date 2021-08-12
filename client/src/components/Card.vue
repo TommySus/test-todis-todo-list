@@ -100,7 +100,6 @@ export default {
         }
         this.$store.dispatch('updateCard', payload)
       } else {
-        console.log(e, 'update card')
         const payload = {
           id: this.Card.id,
           name: this.Card.name,
@@ -108,12 +107,10 @@ export default {
           BoardId: this.Card.BoardId
         }
         this.$store.dispatch('updateCard', payload)
-        this.newCardName = this.Card.name
-        console.log(this.newCardName, 'update card')
+        this.newCardName = this.Card.nameS
       }
     },
     updateCardDescription (e) {
-      console.log(e, 'update card')
       const payload = {
         id: this.Card.id,
         name: this.Card.name,

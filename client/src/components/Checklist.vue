@@ -91,7 +91,6 @@ export default {
       this.existingChecklistName = this.Checklist.name
     },
     updateChecklist () {
-      console.log(this.existingChecklistName, '<<<<< nama yang belum update')
       if (this.existingChecklistName.length > 0) {
         const payload = {
           name: this.existingChecklistName,

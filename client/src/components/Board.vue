@@ -88,12 +88,10 @@ export default {
         })
     },
     handleOk () {
-      console.log(this.newCard)
       const payload = {
         name: this.newCard,
         BoardId: this.Board.id
       }
-      console.log(payload)
       this.$store.dispatch('createCard', payload)
       this.newCard = ''
     }
