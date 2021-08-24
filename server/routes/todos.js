@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const ControllerTodo = require('../controllers/controllerTodo')
-const ControllerCheckList = require('../controllers/controllerCheckList')
-const ControllerCheckListData = require('../controllers/controllerCheckListData')
+const ControllerTodo = require('../controllers/ControllerTodo')
+const ControllerCheckList = require('../controllers/ControllerChecklist')
+const ControllerCheckListData = require('../controllers/ControllerChecklistData')
 const ControllerCard = require('../controllers/ControllerCard')
 
 
