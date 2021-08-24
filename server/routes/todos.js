@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const ControllerTodo = require('../controllers/controllertodo')
-const ControllerCheckList = require('../controllers/controllerchecklist')
-const ControllerCheckListData = require('../controllers/controllerchecklistData')
-const ControllerCard = require('../controllers/controllercard')
+const ControllerTodo = require('../controllers/controllerTodo')
+const ControllerCheckList = require('../controllers/controllerChecklist')
+const ControllerCheckListData = require('../controllers/controllerChecklistData')
+const ControllerCard = require('../controllers/controllerCard')
 
 
 router.get("/", ControllerTodo.getAllData)
