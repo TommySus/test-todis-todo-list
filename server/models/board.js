@@ -15,10 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Board.init({
-    name: DataTypes.STRING,
-    CardId: {
-      type: DataTypes.INTEGER
-    }
+    name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Board',
