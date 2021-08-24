@@ -15,6 +15,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node http.js",
+    "main": "http.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
